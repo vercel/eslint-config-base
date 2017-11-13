@@ -295,7 +295,7 @@ module.exports = {
 
 		// Error because nobody writes code like this and to be quite honest
 		// I don't think many people would know how to read it
-		'no-seequences': 'error',
+		'no-sequences': 'error',
 
 		// Breaking the 'warn only' semantics rules rule because it's time to start doing
 		// errors better
@@ -544,7 +544,7 @@ module.exports = {
 		'jsx-quotes': ['error', 'prefer-double'],
 
 		// Error because consistency and readability matter
-		'key-spacing': ['error', {beforeColon: false, afterColor: true, mode: 'strict'}],
+		'key-spacing': ['error', {beforeColon: false, afterColon: true, mode: 'strict'}],
 
 		// Error because consistency and readability matter
 		'keyword-spacing': ['error', {before: true, after: true}],
@@ -601,7 +601,7 @@ module.exports = {
 		'new-parens': 'error',
 
 		// Error for consistency. This is one of those times where --fix is going to actually help you.
-		'newline-per-chained-call': ['error', {ignoreChainWidthDepth: 2}],
+		'newline-per-chained-call': ['error', {ignoreChainWithDepth: 2}],
 
 		// Disabled because we know better
 		'no-array-constructor': 0,
@@ -624,7 +624,7 @@ module.exports = {
 		// for alignment
 		//
 		// https://www.emacswiki.org/emacs/SmartTabs
-		'no-mixed-tabs-and-spaces': ['error', 'smart-tabs'],
+		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
 
 		// Warn because we generally know better
 		'no-multi-assign': 'warn',
@@ -763,7 +763,7 @@ module.exports = {
 		'arrow-parens': ['error', 'as-needed', {requireForBlockBody: true}],
 
 		// Error becuase readability counts
-		'arrow-parens': ['error', {before: true, after: true}],
+		'arrow-spacing': ['error', {before: true, after: true}],
 
 		// Error because you can still return an object or null from a constructor without needing to call
 		// super() (and still avoid the ReferenceError()) but all other cases require super(). Despite the
@@ -803,7 +803,7 @@ module.exports = {
 		'no-this-before-super': 'error',
 
 		// Error because this is fixable and unnecessary
-		'no-useless-computed-ley': 'error',
+		'no-useless-computed-key': 'error',
 
 		// Error because empty constructors are unnecessary and only add visual cruft
 		'no-useless-constructor': 'error',
@@ -857,6 +857,6 @@ module.exports = {
 		'template-curly-spacing': ['error', 'never'],
 
 		// Error because consistency and readability matter
-		'yield-start-spacing': ['error', 'before']
+		'yield-star-spacing': ['error', 'before']
 	}
 };
