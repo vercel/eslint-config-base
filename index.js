@@ -503,7 +503,7 @@ module.exports = {
 
 		// Disabled because we're not that opinionated
 		'id-blacklist': 0,
-		
+
 		// Disabled because we're not that opinionated
 		'id-length': 0,
 
@@ -760,7 +760,7 @@ module.exports = {
 		'arrow-body-style': ['error', 'as-needed'],
 
 		// Error because consistency matters
-		'arrow-parens': ['error', 'as-needed', {requireForBlockBody: true}],
+		'arrow-parens': ['error', 'as-needed', {requireForBlockBody: false}],
 
 		// Error becuase readability counts
 		'arrow-spacing': ['error', {before: true, after: true}],
