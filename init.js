@@ -48,19 +48,26 @@ if (pkg.scripts && pkg.scripts.lint) {
 if (hasGitHooks()
 		&& (!pkg.git
 		|| !pkg.git['pre-commit']
-		|| (Array.isArray(pkg.git['pre-commit']) && pkg.git['pre-commit'].indexOf('lint') === -1)
-		|| (typeof pkg.git['pre-commit'] === 'string' && pkg.git['pre-commit'] !== 'lint'))) {
+		|| (Array.isArray(pkg.git['pre-commit']) && pkg.git['pre-commit'].indexOf('lint-staged') === -1)
+		|| (typeof pkg.git['pre-commit'] === 'string' && pkg.git['pre-commit'] !== 'lint-staged'))) {
 	// Add it as a linter step for pre-commit
 	console.log('△  Detected @zeit/git-hooks - adding a lint step to the `pre-commit` hook as well');
+
+	if (pkg.scripts && pkg.scripts['lint-staged']) {
+		console.error('△  WARNING! Cowardly refusing to overwrite existing `lint-staged` script in', packagePath);
+	} else {
+		(pkg.scripts = pkg.scripts || {})['lint-staged'] = 'git diff --cached --name-only \'*.js\' \'*.jsx\' | xargs eslint';
+	}
+
 	const git = (pkg.git = pkg.git || {});
 	if (!git['pre-commit']) {
-		git['pre-commit'] = 'lint';
+		git['pre-commit'] = 'lint-staged';
 	} else {
 		if (typeof git['pre-commit'] === 'string') {
 			git['pre-commit'] = [git['pre-commit']];
 		}
 
-		git['pre-commit'].unshift('lint');
+		git['pre-commit'].unshift('lint-staged');
 	}
 }
 
