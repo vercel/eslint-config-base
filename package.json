@@ -6,5 +6,8 @@
   "license": "MIT",
   "peerDependencies": {
     "eslint": ">= 4.11"
+  },
+  "bin": {
+    "zeit-lint-init": "./init.js"
   }
 }
