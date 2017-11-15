@@ -7,7 +7,7 @@ A Node.js ESLint configuration for ZEIT source code.
 Add this package to your project as a dev-dependency:
 
 ```console
-$ yarn add --dev @zeit/eslint-config-zeit
+$ yarn add --dev eslint @zeit/eslint-config-zeit
 ```
 
 Optionally add `@zeit/git-hooks` if you want to auto-lint upon committing:
