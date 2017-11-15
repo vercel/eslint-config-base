@@ -21,28 +21,47 @@ const packageFileContents = (() => {
 		return fs.readFileSync(packagePath, 'utf-8');
 	} catch (err) {
 		if (err.code === 'ENOENT') {
-			console.error(`ERROR! No ${PACKAGE_FILENAME} was found in the current directory.`);
+			console.error(`△  ERROR! No ${PACKAGE_FILENAME} was found in the current directory.`);
 			process.exit(1);
 		}
-	
+
 		throw err;
 	}
 })();
 
 const pkg = JSON.parse(packageFileContents);
 
-if (pkg.scripts && pkg.scripts.lint) {
-	console.error('ERROR! Cowardly refusing to overwrite existing `lint` script in', packagePath);
+if (pkg.eslintConfig) {
+	console.error('△  ERROR! Terminating; cowardly refusing to overwrite existing `eslintConfig` in', packagePath);
 	process.exit(1);
 }
 
-console.log('△  Adding `scripts.lint` to', packagePath);
-(pkg.scripts = pkg.scripts || {}).lint = 'eslint --ext .jsx,.js .';
+pkg.eslintConfig = {extends: ['@zeit/eslint-config-zeit']};
 
-if (hasGitHooks() && (!pkg.git || !pkg.git['pre-commit'] || pkg.git['pre-commit'].indexOf('lint') === -1)) {
-	const git = (pkg.git = pkg.git || {});
-	(git['pre-commit'] = git['pre-commit'] || []).unshift('lint');
+if (pkg.scripts && pkg.scripts.lint) {
+	console.error('△  WARNING! Cowardly refusing to overwrite existing `lint` script in', packagePath);
+} else {
+	console.log('△  Adding `scripts.lint` to', packagePath);
+	(pkg.scripts = pkg.scripts || {}).lint = 'eslint --ext .jsx,.js .';
+}
+
+if (hasGitHooks()
+		&& (!pkg.git
+		|| !pkg.git['pre-commit']
+		|| (Array.isArray(pkg.git['pre-commit']) && pkg.git['pre-commit'].indexOf('lint') === -1)
+		|| (typeof pkg.git['pre-commit'] === 'string' && pkg.git['pre-commit'] !== 'lint'))) {
+	// Add it as a linter step for pre-commit
 	console.log('△  Detected @zeit/git-hooks - adding a lint step to the `pre-commit` hook as well');
+	const git = (pkg.git = pkg.git || {});
+	if (!git['pre-commit']) {
+		git['pre-commit'] = 'lint';
+	} else {
+		if (typeof git['pre-commit'] === 'string') {
+			git['pre-commit'] = [git['pre-commit']];
+		}
+
+		git['pre-commit'].unshift('lint');
+	}
 }
 
 const formattedJson = JSON.stringify(pkg, null, '  ');
