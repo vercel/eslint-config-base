@@ -5,8 +5,10 @@
   "author": "Josh Junon <junon@zeit.co>",
   "license": "MIT",
   "peerDependencies": {
+    "eslint": ">= 4.11"
+  },
+  "optionalPeerDependencies": {
     "babel-eslint": ">= 8.0.2",
-    "eslint": ">= 4.11",
     "eslint-plugin-flowtype": ">= 2.39.1"
   },
   "bin": {
