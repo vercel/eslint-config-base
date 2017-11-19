@@ -6,15 +6,19 @@ const PACKAGE_FILENAME = 'package.json';
 
 const packagePath = path.join(process.cwd(), PACKAGE_FILENAME);
 
-function hasGitHooks() {
+function hasModule(name) {
 	try {
-		require('@zeit/git-hooks');
+		require(name);
 		return true;
 	} catch (err) {
 		void err;
 		return false;
 	}
 }
+
+const hasGitHooks = hasModule('@zeit/git-hooks');
+const hasBabel = hasModule('babel-eslint');
+const hasFlowtype = hasModule('eslint-plugin-flowtype');
 
 const packageFileContents = (() => {
 	try {
@@ -36,7 +40,27 @@ if (pkg.eslintConfig) {
 	process.exit(1);
 }
 
-pkg.eslintConfig = {extends: ['@zeit/eslint-config-base']};
+const eslintConfig = {
+	'extends': ['@zeit/eslint-config-base']
+};
+
+if (hasFlowtype) {
+	if (!hasBabel) {
+		console.error('△  WARNING! FlowType plugin was detected, but not the `babel-eslint` package. It\'s required in order for FlowType to work.');
+		console.error('            Install it by running `yarn add --dev babel-eslint`. I\'ll assume you\'ll be doing this and add it to your');
+		console.error('            package.json anyway.');
+	}
+
+	eslintConfig.parser = 'babel-eslint';
+	eslintConfig.plugins = ['flowtype'];
+	eslintConfig.settings = {
+		flowtype: {
+			onlyFilesWithFlowAnnotation: true
+		}
+	};
+}
+
+pkg.eslintConfig = eslintConfig;
 
 if (pkg.scripts && pkg.scripts.lint) {
 	console.error('△  WARNING! Cowardly refusing to overwrite existing `lint` script in', packagePath);
