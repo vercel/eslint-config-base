@@ -148,7 +148,7 @@ const baseRules = {
 
 	// Error for most cases for consistency's sake;
 	// however we allow snake-case and id's beginning with capital letters to be put into brackets
-	'dot-notation': ['error', {allowKeywords: false, allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)'}],
+	'dot-notation': ['error', {allowKeywords: true, allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)'}],
 
 	// Error because there's never a situation where == is better than ===
 	'eqeqeq': 'error',
