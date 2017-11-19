@@ -896,7 +896,7 @@ module.exports = {
 		'flowtype/require-parameter-type': ['error', {excludeArrowFunctions: true}],
 
 		// FLOW: Error becuase we should be good developers
-		'flowtype/require-return-type': ['error', {excludeArrowFunctions: true}],
+		'flowtype/require-return-type': ['error', 'always', {excludeArrowFunctions: 'expressionsOnly'}],
 
 		// FLOW: Error because the files that we /do/ lint should have valid flow annotations, and
 		//       consistent ones at that. Note that the init script will place the config option
