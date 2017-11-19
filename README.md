@@ -29,6 +29,17 @@ need to be present _before_ running this script.
 $ yarn zeit-lint-init
 ```
 
+In the event you need to re-run the configuration (e.g. you forgot one of the optional packages),
+you can use `--force` to re-run the configuration process.
+
+The caveats to this are that any after-the-fact manual changes to `eslintConfig` will be overwritten,
+and any optional dependency configurations (git hooks, etc.) that were _removed_ since the first time
+`zeit-lint-init` was run will remain in package.json and need to be manually cleaned up.
+
+```console
+$ yarn zeit-lint-init --force
+```
+
 It is also recommended to [add an `.editorconfig` file](https://github.com/zeit/editorconfig-zeit)
 to your project to make GitHub display the code a little neater as well as help team
 members in correctly formatting their code to pass lint checks.
