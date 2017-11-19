@@ -80,7 +80,7 @@ if (pkg.scripts && pkg.scripts.lint) {
 	(pkg.scripts = pkg.scripts || {}).lint = 'eslint --ext .jsx,.js .';
 }
 
-if (hasGitHooks()
+if (hasGitHooks
 		&& (!pkg.git
 		|| !pkg.git['pre-commit']
 		|| (Array.isArray(pkg.git['pre-commit']) && pkg.git['pre-commit'].indexOf('lint-staged') === -1)
