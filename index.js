@@ -904,8 +904,8 @@ module.exports = {
 		//       so this rule effectively only enforces the convention on flow files.
 		'flowtype/require-valid-file-annotation': ['error', 'always', {annotationStyle: 'block'}],
 
-		// FLOW: Error becuase we should be good developers. Ignores any `_` veriables.
-		'flowtype/require-variable-type': ['error', {excludeVariableMatch: '^_+$'}],
+		// FLOW: Disabled because inference is okay sometimes
+		'flowtype/require-variable-type': 0,
 
 		// FLOW: Error because it's fixable and we should be consistent
 		'flowtype/semi': ['error', 'always'],
