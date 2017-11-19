@@ -559,7 +559,7 @@ module.exports = {
 		'lines-around-comment': 0,
 
 		// Error because consistency and readability matter
-		'lines-between-class-members': ['error', 'always'],
+		'lines-between-class-members': ['error', 'always', {exceptAfterSingleLine: true}],
 
 		// Disabled because we know better
 		'max-depth': 0,
