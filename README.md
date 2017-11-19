@@ -16,7 +16,14 @@ Optionally add `@zeit/git-hooks` if you want to auto-lint upon committing:
 $ yarn add --dev @zeit/git-hooks
 ```
 
-Then initialize the linter:
+If you want to use Flow, you **must** install the following plugins:
+
+```console
+$ yarn add --dev babel-eslint eslint-plugin-flowtype
+```
+
+Then initialize the linter. Note that any optional stuff (git hooks, flowtype, etc.)
+need to be present _before_ running this script.
 
 ```console
 $ yarn zeit-lint-init
