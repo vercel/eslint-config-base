@@ -857,6 +857,72 @@ module.exports = {
 		'template-curly-spacing': ['error', 'never'],
 
 		// Error because consistency and readability matter
-		'yield-star-spacing': ['error', 'before']
+		'yield-star-spacing': ['error', 'before'],
+
+		// FLOW: Error because consistency matters
+		'flowtype/boolean-style': ['error', 'boolean'],
+
+		// FLOW: Error because we should always define our types
+		'flowtype/define-flow-type': 'error',
+
+		// FLOW: Error because consistency matters
+		'flowtype/delimiter-dangle': ['error', 'never'],
+
+		// FLOW: Error because consistency matters
+		'flowtype/generic-spacing': ['error', 'never'],
+
+		// FLOW: Error because consistency matters and you're probably doing something wrong here
+		'flowtype/no-dupe-keys': 'error',
+
+		// FLOW: Disabled because we know better
+		'flowtype/no-mutable-array': 0,
+
+		// FLOW: Error because we shouldn't be encouraging the use of boxed types
+		'flowtype/no-primitive-constructor-types': 'error',
+
+		// FLOW: Error because this usually indicates an error
+		'flowtype/no-types-missing-file-annotation': 'error',
+
+		// FLOW: Warn because sometimes we might know better
+		'flowtype/no-unused-expressions': 'warn',
+
+		// FLOW: Error because we shouldn't be lazy
+		'flowtype/no-weak-types': 'error',
+
+		// FLOW: Error because consistency matters (and this is fixable)
+		'flowtype/object-type-delimiter': ['error', 'comma'],
+
+		// FLOW: Error because we should be good developers; otherwise, why use Flow?
+		'flowtype/require-parameter-type': ['error', {excludeArrowFunctions: true}],
+
+		// FLOW: Error becuase we should be good developers
+		'flowtype/require-return-type': ['error', {excludeArrowFunctions: true}],
+
+		// FLOW: Error because the files that we /do/ lint should have valid flow annotations, and
+		//       consistent ones at that. Note that the init script will place the config option
+		//       in your package.json that only enables flow types for files that have the annotation,
+		//       so this rule effectively only enforces the convention on flow files.
+		'flowtype/require-valid-file-annotation': ['error', {annotationStyle: 'block'}],
+
+		// FLOW: Error becuase we should be good developers. Ignores any `_` veriables.
+		'flowtype/require-variable-type': ['error', {excludeVariableMatch: '^_+$'}],
+
+		// FLOW: Error because it's fixable and we should be consistent
+		'flowtype/semi': ['error', 'always'],
+
+		// FLOW: Disabled because we're not that picky
+		'flowtype/sort-keys': 0,
+
+		// FLOW: Error because it's fixable, readability counts and consistency matters
+		'flowtype/space-after-type-colon': ['error', 'always'],
+
+		// FLOW: Error because it's fixable, readability counts and consistency matters
+		'flowtype/space-before-generic-bracket': ['error', 'never'],
+
+		// FLOW: Error because we should have a consistent naming convention
+		'flowtype/type-id-match': ['error', '^([A-Z]\\w*)+'],
+
+		// FLOW: Error because consistency matters
+		'flowtype/union-intersection-spacing': ['error', 'never']
 	}
 };
