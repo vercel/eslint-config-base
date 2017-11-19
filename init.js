@@ -6,6 +6,12 @@ const PACKAGE_FILENAME = 'package.json';
 
 const packagePath = path.join(process.cwd(), PACKAGE_FILENAME);
 
+function hasFlag(flag) {
+	return process.argv.slice(2).includes(flag);
+}
+
+const force = hasFlag('--force');
+
 function hasModule(name) {
 	try {
 		require(name);
@@ -36,8 +42,13 @@ const packageFileContents = (() => {
 const pkg = JSON.parse(packageFileContents);
 
 if (pkg.eslintConfig) {
-	console.error('△  ERROR! Terminating; cowardly refusing to overwrite existing `eslintConfig` in', packagePath);
-	process.exit(1);
+	if (force) {
+		console.warn('△  WARNING! `--force` being used; overwriting the eslintConfig in', packagePath);
+	} else {
+		console.error('△  ERROR! Terminating; cowardly refusing to overwrite existing `eslintConfig` in', packagePath);
+		console.error('          Re-run with `--force` if you want to overwrite the existing eslintConfig.');
+		process.exit(1);
+	}
 }
 
 const eslintConfig = {
