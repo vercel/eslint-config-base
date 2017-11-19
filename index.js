@@ -938,6 +938,9 @@ module.exports = {
 		es6: true,
 		node: true
 	},
+	parserOptions: {
+		ecmaVersion: 2017
+	},
 	rules: Object.assign(
 		baseRules,
 		hasPackage('eslint-plugin-flowtype') ? flowRules : {}
