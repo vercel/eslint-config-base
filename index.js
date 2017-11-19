@@ -902,7 +902,7 @@ module.exports = {
 		//       consistent ones at that. Note that the init script will place the config option
 		//       in your package.json that only enables flow types for files that have the annotation,
 		//       so this rule effectively only enforces the convention on flow files.
-		'flowtype/require-valid-file-annotation': ['error', {annotationStyle: 'block'}],
+		'flowtype/require-valid-file-annotation': ['error', 'always', {annotationStyle: 'block'}],
 
 		// FLOW: Error becuase we should be good developers. Ignores any `_` veriables.
 		'flowtype/require-variable-type': ['error', {excludeVariableMatch: '^_+$'}],
