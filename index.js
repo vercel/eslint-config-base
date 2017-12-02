@@ -668,7 +668,7 @@ const baseRules = {
 	'nonblock-statement-body-position': 0,
 
 	// Error because readability and consistency count
-	'object-curly-newline': ['error', {'ObjectExpression': {multiline: true, consistent: true}, 'ObjectPattern': 'never'}],
+	'object-curly-newline': ['error', {multiline: true, consistent: true}],
 
 	// Error because consistency counts
 	'object-curly-spacing': ['error', 'never'],
