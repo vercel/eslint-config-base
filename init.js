@@ -36,7 +36,7 @@ if (pkg.eslintConfig) {
 	process.exit(1);
 }
 
-pkg.eslintConfig = {extends: ['@zeit/eslint-config-zeit']};
+pkg.eslintConfig = {extends: ['@zeit/eslint-config-base']};
 
 if (pkg.scripts && pkg.scripts.lint) {
 	console.error('△  WARNING! Cowardly refusing to overwrite existing `lint` script in', packagePath);
