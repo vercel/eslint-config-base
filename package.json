@@ -7,6 +7,10 @@
   "peerDependencies": {
     "eslint": ">= 4.11"
   },
+  "optionalPeerDependencies": {
+    "babel-eslint": ">= 8.0.2",
+    "eslint-plugin-flowtype": ">= 2.39.1"
+  },
   "bin": {
     "zeit-lint-init": "./init.js"
   }

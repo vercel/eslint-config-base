@@ -6,15 +6,25 @@ const PACKAGE_FILENAME = 'package.json';
 
 const packagePath = path.join(process.cwd(), PACKAGE_FILENAME);
 
-function hasGitHooks() {
+function hasFlag(flag) {
+	return process.argv.slice(2).includes(flag);
+}
+
+const force = hasFlag('--force');
+
+function hasModule(name) {
 	try {
-		require('@zeit/git-hooks');
+		require(name);
 		return true;
 	} catch (err) {
 		void err;
 		return false;
 	}
 }
+
+const hasGitHooks = hasModule('@zeit/git-hooks');
+const hasBabel = hasModule('babel-eslint');
+const hasFlowtype = hasModule('eslint-plugin-flowtype');
 
 const packageFileContents = (() => {
 	try {
@@ -32,11 +42,36 @@ const packageFileContents = (() => {
 const pkg = JSON.parse(packageFileContents);
 
 if (pkg.eslintConfig) {
-	console.error('△  ERROR! Terminating; cowardly refusing to overwrite existing `eslintConfig` in', packagePath);
-	process.exit(1);
+	if (force) {
+		console.warn('△  WARNING! `--force` being used; overwriting the eslintConfig in', packagePath);
+	} else {
+		console.error('△  ERROR! Terminating; cowardly refusing to overwrite existing `eslintConfig` in', packagePath);
+		console.error('          Re-run with `--force` if you want to overwrite the existing eslintConfig.');
+		process.exit(1);
+	}
 }
 
-pkg.eslintConfig = {extends: ['@zeit/eslint-config-base']};
+const eslintConfig = {
+	'extends': ['@zeit/eslint-config-base']
+};
+
+if (hasFlowtype) {
+	if (!hasBabel) {
+		console.error('△  WARNING! FlowType plugin was detected, but not the `babel-eslint` package. It\'s required in order for FlowType to work.');
+		console.error('            Install it by running `yarn add --dev babel-eslint`. I\'ll assume you\'ll be doing this and add it to your');
+		console.error('            package.json anyway.');
+	}
+
+	eslintConfig.parser = 'babel-eslint';
+	eslintConfig.plugins = ['flowtype'];
+	eslintConfig.settings = {
+		flowtype: {
+			onlyFilesWithFlowAnnotation: true
+		}
+	};
+}
+
+pkg.eslintConfig = eslintConfig;
 
 if (pkg.scripts && pkg.scripts.lint) {
 	console.error('△  WARNING! Cowardly refusing to overwrite existing `lint` script in', packagePath);
@@ -45,7 +80,7 @@ if (pkg.scripts && pkg.scripts.lint) {
 	(pkg.scripts = pkg.scripts || {}).lint = 'eslint --ext .jsx,.js .';
 }
 
-if (hasGitHooks()
+if (hasGitHooks
 		&& (!pkg.git
 		|| !pkg.git['pre-commit']
 		|| (Array.isArray(pkg.git['pre-commit']) && pkg.git['pre-commit'].indexOf('lint-staged') === -1)
