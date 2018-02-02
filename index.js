@@ -18,9 +18,8 @@ const baseRules = {
 	// are scarce enough that a linter directive suffices
 	'no-cond-assign': 'warn',
 
-	// Warn because 1) we should be wrapping calls to console, and 2) oftentimes
-	// console calls are artifacts of debugging
-	'no-console': 'warn',
+	// Disabled because we know better
+	'no-console': 0,
 
 	// Disabled because we know better
 	'no-constant-condition': 0,
