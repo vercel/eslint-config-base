@@ -132,8 +132,8 @@ const baseRules = {
 	// don't @ me I'm 14 I can do what I want
 	'complexity': 0,
 
-	// Error because we really should be better about intent
-	'consistent-return': 'error',
+	// Disabled because we know better
+	'consistent-return': 0,
 
 	// Error because consistent block format is important for readability;
 	// see also 'cognitive strain'
@@ -808,8 +808,8 @@ const baseRules = {
 	// Error because it's not 2010 anymore
 	'no-var': 'error',
 
-	// Error because it's fixable and reads nicely if consistent
-	'object-shorthand': ['error', 'consistent-as-needed'],
+	// Disabled because it's not fixable and super annoying
+	'object-shorthand': 0,
 
 	// Disabled because we know better
 	'prefer-arrow-callback': 0,
