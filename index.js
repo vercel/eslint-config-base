@@ -934,7 +934,10 @@ function hasPackage(name) {
 
 module.exports = {
 	parserOptions: {
-		ecmaVersion: 2017
+		ecmaVersion: 2018,
+		ecmaFeatures: {
+			experimentalObjectRestSpread: true
+		}
 	},
 	rules: Object.assign(
 		baseRules,
