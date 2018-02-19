@@ -1,6 +1,6 @@
 {
   "name": "@zeit/eslint-config-base",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "index.js",
   "author": "Josh Junon <junon@zeit.co>",
   "license": "MIT",
