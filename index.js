@@ -403,8 +403,8 @@ const baseRules = {
 	// defining will always result in an error
 	'no-use-before-define': 'error',
 
-	// Warn because this has bitten us a few times but also sometimes we know better
-	'callback-return': 'warn',
+	// Disabled because we know better
+	'callback-return': 0,
 
 	// Disabled because we know better
 	'global-require': 0,
