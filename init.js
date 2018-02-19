@@ -84,7 +84,7 @@ if (hasFlowtype) {
 pkg.eslintConfig = eslintConfig;
 
 if (pkg.scripts && pkg.scripts.lint) {
-	console.error(chalk`{yellow.bold △  WARNING!} Cowardly refusing to overwrite existing {underling lint} script in {underline ${packagePath}}`);
+	console.error(chalk`{yellow.bold △  WARNING!} Cowardly refusing to overwrite existing {underline lint} script in {underline ${packagePath}}`);
 } else {
 	console.log(chalk`△  Adding {underline scripts.lint} to {underline ${packagePath}}`);
 	(pkg.scripts = pkg.scripts || {}).lint = 'eslint --ext .jsx,.js .';
