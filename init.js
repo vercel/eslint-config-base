@@ -101,7 +101,7 @@ if (hasGitHooks
 	if (pkg.scripts && pkg.scripts['lint-staged']) {
 		console.error(chalk`{yellow.bold △  WARNING!} Cowardly refusing to overwrite existing {underline lint-staged} script in {underline ${packagePath}}`);
 	} else {
-		(pkg.scripts = pkg.scripts || {})['lint-staged'] = 'git diff --cached --name-only \'*.js\' \'*.jsx\' | xargs eslint';
+		(pkg.scripts = pkg.scripts || {})['lint-staged'] = 'git diff --diff-filter=ACMRT --cached --name-only \'*.js\' \'*.jsx\' | xargs eslint';
 	}
 
 	const git = (pkg.git = pkg.git || {});
