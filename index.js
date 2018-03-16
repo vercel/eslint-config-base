@@ -149,7 +149,7 @@ const baseRules = {
 	// however we allow snake-case and id's beginning with capital letters to be put into brackets
 	'dot-notation': ['error', {allowKeywords: true, allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)'}],
 
-	// Error because there's never a situation where == is better than ===
+	// Error because there's rarely a situation where == is better than ===
 	'eqeqeq': ['error', 'smart'],
 
 	// Warn because there's usually a better way to write such loops,
@@ -179,8 +179,10 @@ const baseRules = {
 	// Disabled because we know better
 	'no-empty-pattern': 0,
 
-	// Error because this this is an error anyway with the eqeqeq rule
-	'no-eq-null': 'error',
+	// Warn because there are some convenience use-cases for it but
+	// there's also a high chance it's a mistake as well. Use eslint-disable-line
+	// directives to suppress and document intentional uses of ==.
+	'no-eq-null': 'warning',
 
 	// Warn, because please don't use eval() but also we (should) know better
 	'no-eval': 'warn',
