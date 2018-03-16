@@ -150,7 +150,7 @@ const baseRules = {
 	'dot-notation': ['error', {allowKeywords: true, allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)'}],
 
 	// Error because there's never a situation where == is better than ===
-	'eqeqeq': 'error',
+	'eqeqeq': ['error', 'smart'],
 
 	// Warn because there's usually a better way to write such loops,
 	// but if we are using for..in we probably know better
