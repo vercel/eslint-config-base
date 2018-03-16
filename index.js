@@ -182,7 +182,7 @@ const baseRules = {
 	// Warn because there are some convenience use-cases for it but
 	// there's also a high chance it's a mistake as well. Use eslint-disable-line
 	// directives to suppress and document intentional uses of ==.
-	'no-eq-null': 'warning',
+	'no-eq-null': 'warn',
 
 	// Warn, because please don't use eval() but also we (should) know better
 	'no-eval': 'warn',
