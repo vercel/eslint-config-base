@@ -237,7 +237,7 @@ const baseRules = {
 	'no-magic-numbers': 0,
 
 	// Error because we should be strict about whitespace - also, this is --fix'able
-	'no-multi-spaces': 'error',
+	'no-multi-spaces': ['error', {ignoreEOLComments: true}],
 
 	// Error because it's 2017 and you should be using template literals
 	'no-multi-str': 'error',
