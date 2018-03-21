@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Josh Junon <junon@zeit.co>",
   "license": "MIT",
+  "bin": {
+    "zeit-eslint": "./zeit-eslint.sh"
+  },
   "peerDependencies": {
     "eslint": ">= 4.11"
   },
