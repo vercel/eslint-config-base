@@ -87,7 +87,7 @@ if (pkg.scripts && pkg.scripts.lint) {
 	console.error(chalk`{yellow.bold △  WARNING!} Cowardly refusing to overwrite existing {underline lint} script in {underline ${packagePath}}`);
 } else {
 	console.log(chalk`△  Adding {underline scripts.lint} to {underline ${packagePath}}`);
-	(pkg.scripts = pkg.scripts || {}).lint = 'eslint --ext .jsx,.js .';
+	(pkg.scripts = pkg.scripts || {}).lint = 'zeit-eslint --ext .jsx,.js .';
 }
 
 if (hasGitHooks
@@ -101,7 +101,7 @@ if (hasGitHooks
 	if (pkg.scripts && pkg.scripts['lint-staged']) {
 		console.error(chalk`{yellow.bold △  WARNING!} Cowardly refusing to overwrite existing {underline lint-staged} script in {underline ${packagePath}}`);
 	} else {
-		(pkg.scripts = pkg.scripts || {})['lint-staged'] = 'git diff --diff-filter=ACMRT --cached --name-only \'*.js\' \'*.jsx\' | xargs eslint';
+		(pkg.scripts = pkg.scripts || {})['lint-staged'] = 'git diff --diff-filter=ACMRT --cached --name-only \'*.js\' \'*.jsx\' | xargs zeit-eslint';
 	}
 
 	const git = (pkg.git = pkg.git || {});
