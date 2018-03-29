@@ -756,7 +756,7 @@ const baseRules = {
 	'arrow-body-style': ['error', 'as-needed'],
 
 	// Error because consistency matters
-	'arrow-parens': ['error', 'as-needed', {requireForBlockBody: false}],
+	'arrow-parens': ['error', 'always'],
 
 	// Error becuase readability counts
 	'arrow-spacing': ['error', {before: true, after: true}],
