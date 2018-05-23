@@ -1,5 +1,7 @@
 # @zeit/eslint-config-zeit
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zeit/eslint-config-base.svg)](https://greenkeeper.io/)
+
 A Node.js ESLint configuration for ZEIT source code.
 
 ## Usage
