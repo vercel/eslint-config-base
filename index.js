@@ -71,7 +71,15 @@ const baseRules = {
 	// Error, but only in places where we don't know better;
 	// we are very anal about whitespace in our output, so we tell
 	// eslint to get out of our way for most of those instances
-	'no-irregular-whitespace': ['error', {skipStrings: true, skipComments: true, skipRegExps: true, skipTemplates: true}],
+	'no-irregular-whitespace': [
+		'error',
+		{
+			skipStrings: true,
+			skipComments: true,
+			skipRegExps: true,
+			skipTemplates: true
+		}
+	],
 
 	// Warn, because who would do this anyway? If they are, they probably know better
 	'no-obj-calls': 'warn',
@@ -130,14 +138,14 @@ const baseRules = {
 	// Disabled because we know better, and sometimes we write interesting
 	// code that doesn't conform to society's standards of 'beautiful', also
 	// don't @ me I'm 14 I can do what I want
-	'complexity': 0,
+	complexity: 0,
 
 	// Disabled because we know better
 	'consistent-return': 0,
 
 	// Error because consistent block format is important for readability;
 	// see also 'cognitive strain'
-	'curly': ['error', 'all'],
+	curly: ['error', 'all'],
 
 	// Disabled because we know better
 	'default-case': 0,
@@ -147,10 +155,13 @@ const baseRules = {
 
 	// Error for most cases for consistency's sake;
 	// however we allow snake-case and id's beginning with capital letters to be put into brackets
-	'dot-notation': ['error', {allowKeywords: true, allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)'}],
+	'dot-notation': [
+		'error',
+		{ allowKeywords: true, allowPattern: '(^[A-Z])|(^[a-z]+(_[a-z]+)+$)' }
+	],
 
 	// Error because there's rarely a situation where == is better than ===
-	'eqeqeq': ['error', 'smart'],
+	eqeqeq: ['error', 'smart'],
 
 	// Warn because there's usually a better way to write such loops,
 	// but if we are using for..in we probably know better
@@ -237,7 +248,7 @@ const baseRules = {
 	'no-magic-numbers': 0,
 
 	// Error because we should be strict about whitespace - also, this is --fix'able
-	'no-multi-spaces': ['error', {ignoreEOLComments: true}],
+	'no-multi-spaces': ['error', { ignoreEOLComments: true }],
 
 	// Error because it's 2017 and you should be using template literals
 	'no-multi-str': 'error',
@@ -337,7 +348,7 @@ const baseRules = {
 	// can parse hexadecimal characters if you're not careful, and a lot of
 	// people don't know that - which has (in the past) left software open
 	// to vulnerabilities
-	'radix': 'error',
+	radix: 'error',
 
 	// Disabled because we absolutely know better and this is a silly assertion anyway
 	'require-await': 0,
@@ -360,10 +371,10 @@ const baseRules = {
 	//                     "-.   "--"   .-"
 	//
 	// Error because wise we are, but 900 years wise we are not
-	'yoda': 'error',
+	yoda: 'error',
 
 	// Error because it's implied already in modern modules
-	'strict': ['error', 'never'],
+	strict: ['error', 'never'],
 
 	// Disabled because we know better
 	'init-declarations': 0,
@@ -442,7 +453,11 @@ const baseRules = {
 	'array-bracket-newline': ['error', 'consistent'],
 
 	// Error because consistency matters
-	'array-bracket-spacing': ['error', 'never', {singleValue: false, objectsInArrays: false, arraysInArrays: false}],
+	'array-bracket-spacing': [
+		'error',
+		'never',
+		{ singleValue: false, objectsInArrays: false, arraysInArrays: false }
+	],
 
 	// Disabled because we have already specified how we want arrays to be formatted
 	'array-element-newline': 0,
@@ -451,10 +466,10 @@ const baseRules = {
 	'block-spacing': ['error', 'always'],
 
 	// Error because consistency and readability matter
-	'brace-style': ['error', '1tbs', {allowSingleLine: false}],
+	'brace-style': ['error', '1tbs', { allowSingleLine: false }],
 
 	// Warn because consistency matters but also sometimes we know better
-	'camelcase': 'warn',
+	camelcase: 'warn',
 
 	// Disabled because this is easily the most annoying linter rule on the planet
 	'capitalized-comments': 0,
@@ -463,7 +478,7 @@ const baseRules = {
 	'comma-dangle': ['error', 'never'],
 
 	// Error because consistency and readability matter
-	'comma-spacing': ['error', {before: false, after: true}],
+	'comma-spacing': ['error', { before: false, after: true }],
 
 	// Error because consistency matters, and arguably readability (plus nobody uses comma-first so it appears
 	// quite foreign if you're not used to it)
@@ -534,16 +549,19 @@ const baseRules = {
 	// - Use .editorconfig (see https://github.com/Qix-/test-gh-editorconfig/blob/master/index.js and editorconfig.org)
 	// - Use .editorconfig
 	// - If your text editor lacks the ability to customize tab widths, find a new editor (might I suggest ViM?)
-	'indent': ['error', 'tab', {'SwitchCase': 0}],
+	indent: ['error', 'tab', { SwitchCase: 0 }],
 
 	// Error because consistency matters
 	'jsx-quotes': ['error', 'prefer-double'],
 
 	// Error because consistency and readability matter
-	'key-spacing': ['error', {beforeColon: false, afterColon: true, mode: 'strict'}],
+	'key-spacing': [
+		'error',
+		{ beforeColon: false, afterColon: true, mode: 'strict' }
+	],
 
 	// Error because consistency and readability matter
-	'keyword-spacing': ['error', {before: true, after: true}],
+	'keyword-spacing': ['error', { before: true, after: true }],
 
 	// Disabled because we know better
 	'line-comment-position': 0,
@@ -555,7 +573,11 @@ const baseRules = {
 	'lines-around-comment': 0,
 
 	// Error because consistency and readability matter
-	'lines-between-class-members': ['error', 'always', {exceptAfterSingleLine: true}],
+	'lines-between-class-members': [
+		'error',
+		'always',
+		{ exceptAfterSingleLine: true }
+	],
 
 	// Disabled because we know better
 	'max-depth': 0,
@@ -581,7 +603,7 @@ const baseRules = {
 	'max-statements': 0,
 
 	// Error and max 1, because you shouldn't be writing minified code to start with
-	'max-statements-per-line': ['error', {max: 1}],
+	'max-statements-per-line': ['error', { max: 1 }],
 
 	// Disabled because we know better and this rule isn't fine-grained enough to really
 	// help with consistency or style
@@ -597,7 +619,7 @@ const baseRules = {
 	'new-parens': 'error',
 
 	// Error for consistency. This is one of those times where --fix is going to actually help you.
-	'newline-per-chained-call': ['error', {ignoreChainWithDepth: 2}],
+	'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
 
 	// Disabled because we know better
 	'no-array-constructor': 0,
@@ -669,10 +691,10 @@ const baseRules = {
 	'nonblock-statement-body-position': 0,
 
 	// Error because readability and consistency count
-	'object-curly-newline': ['error', {multiline: true, consistent: true}],
+	'object-curly-newline': ['error', { multiline: true, consistent: true }],
 
 	// Error because consistency counts
-	'object-curly-spacing': ['error', 'never'],
+	'object-curly-spacing': ['error', 'always'],
 
 	// Disabled because the rule isn't specific enough
 	'object-property-newline': 0,
@@ -688,7 +710,11 @@ const baseRules = {
 	'operator-assignment': ['error', 'always'],
 
 	// Error since it's fixable, and this helps readability
-	'operator-linebreak': ['error', 'after', {overrides: {'?': 'before', ':': 'before'}}],
+	'operator-linebreak': [
+		'error',
+		'after',
+		{ overrides: { '?': 'before', ':': 'before' } }
+	],
 
 	// Error since it's fixable and is consistent
 	'padded-blocks': ['error', 'never'],
@@ -698,20 +724,28 @@ const baseRules = {
 	'padding-line-between-statements': 0,
 
 	// Error since it's fixable; consistency matters
-	'quote-props': ['error', 'consistent-as-needed', {keywords: true, unnecessary: true, numbers: false}],
+	'quote-props': [
+		'error',
+		'consistent-as-needed',
+		{ keywords: true, unnecessary: true, numbers: false }
+	],
 
 	// Error since it's fixable and consistent
-	'quotes': ['error', 'single', {avoidEscape: true, allowTemplateLiterals: true}],
+	quotes: [
+		'error',
+		'single',
+		{ avoidEscape: true, allowTemplateLiterals: true }
+	],
 
 	// Disable because there isn't enough time in the day
 	'require-jsdoc': 0,
 
 	// Error because there are bugs that can be introduced if semi-colons aren't considered.
 	// Fixable, so even if you're Guillermo Rauch you can still enjoy yourself (:
-	'semi': ['error', 'always', {omitLastInOneLineBlock: false}],
+	semi: ['error', 'always', { omitLastInOneLineBlock: false }],
 
 	// Error because this is fixable and helps consistency and readability
-	'semi-spacing': ['error', {before: false, after: true}],
+	'semi-spacing': ['error', { before: false, after: true }],
 
 	// Error because why in the world would you have semi-colons at the beginning of lines; this isn't BASIC.
 	'semi-style': ['error', 'last'],
@@ -726,22 +760,25 @@ const baseRules = {
 	'space-before-blocks': ['error', 'always'],
 
 	// Error because consistency matters
-	'space-before-function-paren': ['error', {anonymous: 'always', named: 'never', asyncArrow: 'always'}],
+	'space-before-function-paren': [
+		'error',
+		{ anonymous: 'always', named: 'never', asyncArrow: 'always' }
+	],
 
 	// Error because consistency matters
 	'space-in-parens': ['error', 'never'],
 
 	// Error because consistency and readability matter
-	'space-infix-ops': ['error', {int32Hint: true}],
+	'space-infix-ops': ['error', { int32Hint: true }],
 
 	// Error because readability and consistency matter
-	'space-unary-ops': ['error', {words: true, nonwords: false}],
+	'space-unary-ops': ['error', { words: true, nonwords: false }],
 
 	// Error because readability and consistency matter; this is fixable, for those curious
 	'spaced-comment': ['error', 'always'],
 
 	// Error because readability and consistency matter
-	'switch-colon-spacing': ['error', {after: true, before: false}],
+	'switch-colon-spacing': ['error', { after: true, before: false }],
 
 	// Error because consistency matters
 	'template-tag-spacing': ['error', 'never'],
@@ -759,7 +796,7 @@ const baseRules = {
 	'arrow-parens': ['error', 'always'],
 
 	// Error becuase readability counts
-	'arrow-spacing': ['error', {before: true, after: true}],
+	'arrow-spacing': ['error', { before: true, after: true }],
 
 	// Error because you can still return an object or null from a constructor without needing to call
 	// super() (and still avoid the ReferenceError()) but all other cases require super(). Despite the
@@ -770,14 +807,14 @@ const baseRules = {
 	'constructor-super': 'error',
 
 	// Error because consistency matters
-	'generator-star-spacing': ['error', 'before'],
+	'generator-star-spacing': ['error', 'after'],
 
 	// Warn on modifying class identifiers, because you're probably not doing something right
 	// but you may still know better
 	'no-class-assign': 'warn',
 
 	// Error on confusing parenthesis because they are confusing and fairly objectively hard to read
-	'no-confusing-arrow': ['error', {allowParens: true}],
+	'no-confusing-arrow': ['error', { allowParens: true }],
 
 	// Error since this will always result in a runtime error
 	'no-const-assign': 'error',
@@ -787,7 +824,7 @@ const baseRules = {
 
 	// Warn on "duplicate" imports; we warn because we might know better and
 	// this rule isn't smart enough to warrant erroring
-	'no-duplicate-imports': ['error', {includeExports: false}],
+	'no-duplicate-imports': ['error', { includeExports: false }],
 
 	// Warn on new Symbol() since there's a chance you know better
 	'no-new-symbol': 'warn',
@@ -817,7 +854,7 @@ const baseRules = {
 	'prefer-arrow-callback': 0,
 
 	// Error because it's fixable and safer (thus justifying not being a warning)
-	'prefer-const': ['error', {destructuring: 'all'}],
+	'prefer-const': ['error', { destructuring: 'all' }],
 
 	// Disabled because we know better and I don't trust this rule to be smart enough
 	'prefer-destructuring': 0,
@@ -853,7 +890,7 @@ const baseRules = {
 	'template-curly-spacing': ['error', 'never'],
 
 	// Error because consistency and readability matter
-	'yield-star-spacing': ['error', 'before'],
+	'yield-star-spacing': ['error', 'before']
 };
 
 const flowRules = {
@@ -891,16 +928,27 @@ const flowRules = {
 	'flowtype/object-type-delimiter': ['error', 'comma'],
 
 	// FLOW: Error because we should be good developers; otherwise, why use Flow?
-	'flowtype/require-parameter-type': ['error', {excludeArrowFunctions: true}],
+	'flowtype/require-parameter-type': [
+		'error',
+		{ excludeArrowFunctions: true }
+	],
 
 	// FLOW: Error becuase we should be good developers
-	'flowtype/require-return-type': ['error', 'always', {excludeArrowFunctions: 'expressionsOnly'}],
+	'flowtype/require-return-type': [
+		'error',
+		'always',
+		{ excludeArrowFunctions: 'expressionsOnly' }
+	],
 
 	// FLOW: Error because the files that we /do/ lint should have valid flow annotations, and
 	//       consistent ones at that. Note that the init script will place the config option
 	//       in your package.json that only enables flow types for files that have the annotation,
 	//       so this rule effectively only enforces the convention on flow files.
-	'flowtype/require-valid-file-annotation': ['error', 'always', {annotationStyle: 'block'}],
+	'flowtype/require-valid-file-annotation': [
+		'error',
+		'always',
+		{ annotationStyle: 'block' }
+	],
 
 	// FLOW: Disabled because inference is okay sometimes
 	'flowtype/require-variable-type': 0,
