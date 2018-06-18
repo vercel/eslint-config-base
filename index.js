@@ -694,7 +694,7 @@ const baseRules = {
 	'object-curly-newline': ['error', { multiline: true, consistent: true }],
 
 	// Error because consistency counts
-	'object-curly-spacing': ['error', 'always'],
+	'object-curly-spacing': 0,
 
 	// Disabled because the rule isn't specific enough
 	'object-property-newline': 0,
@@ -807,7 +807,7 @@ const baseRules = {
 	'constructor-super': 'error',
 
 	// Error because consistency matters
-	'generator-star-spacing': ['error', 'after'],
+	'generator-star-spacing': 0,
 
 	// Warn on modifying class identifiers, because you're probably not doing something right
 	// but you may still know better
