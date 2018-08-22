@@ -1,5 +1,7 @@
 # @zeit/eslint-config-base
 
+[![CircleCI](https://circleci.com/gh/zeit/eslint-config-base.svg?style=svg)](https://circleci.com/gh/zeit/eslint-config-base)
+
 A Node.js ESLint configuration for ZEIT source code.
 
 ## Usage
