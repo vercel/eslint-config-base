@@ -7,15 +7,48 @@
   "bin": {
     "zeit-eslint": "./zeit-eslint.sh"
   },
-  "peerDependencies": {
-    "eslint": ">= 4.11"
+  "scripts": {
+    "format": "prettier --write '**/*.js'",
+    "format-staged": "git diff --cached --name-only '*.js' | xargs prettier --list-different",
+    "lint": "eslint --ignore-path .gitignore . && shellcheck zeit-eslint.sh",
+    "lint-staged": "git diff --cached --name-only '*.js' | xargs ./zeit-eslint.sh",
+    "test": "node index.js"
   },
-  "optionalPeerDependencies": {
-    "babel-eslint": ">= 8.0.2",
-    "eslint-plugin-flowtype": ">= 2.39.1"
+  "git": {
+    "pre-commit": [
+      "lint-staged",
+      "format-staged"
+    ]
   },
   "dependencies": {
-    "arg": "^1.0.0",
-    "chalk": "^2.3.0"
+    "arg": "2.0.0",
+    "chalk": "2.4.1"
+  },
+  "peerDependencies": {
+    "babel-eslint": ">= 8",
+    "eslint": ">= 5",
+    "eslint-config-airbnb": ">= 17",
+    "eslint-config-prettier": ">= 3",
+    "eslint-plugin-flowtype": ">= 2",
+    "eslint-plugin-import": ">= 2",
+    "eslint-plugin-jsx-a11y": ">= 6",
+    "eslint-plugin-react": ">= 7"
+  },
+  "devDependencies": {
+    "@zeit/git-hooks": "0.1.4",
+    "babel-eslint": "8.2.6",
+    "eslint": "5.4.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-config-prettier": "3.0.1",
+    "eslint-plugin-flowtype": "2.50.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "7.11.1",
+    "prettier": "1.14.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./index.js"
+    ]
   }
 }
