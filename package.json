@@ -10,7 +10,7 @@
   "scripts": {
     "format": "prettier --write '**/*.js'",
     "format-staged": "git diff --cached --name-only '*.js' | xargs prettier --list-different",
-    "lint": "eslint --ignore-path .gitignore . && shellcheck zeit-eslint.sh",
+    "lint": "eslint . && shellcheck zeit-eslint.sh",
     "lint-staged": "git diff --cached --name-only '*.js' | xargs ./zeit-eslint.sh",
     "test": "node index.js"
   },
