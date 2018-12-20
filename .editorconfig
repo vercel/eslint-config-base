@@ -20,11 +20,12 @@ indent_size = 4
 [*.md]
 trim_trailing_whitespace = false
 
-# Ideal settings - some plugins might support these.
-[*.js]
-quote_type = single
+[{*.js,*.jsx,*.ts}]
+indent_style = space
+indent_size = 2
+quote_type = double
 
-[{*.c,*.cc,*.h,*.hh,*.cpp,*.hpp,*.m,*.mm,*.mpp,*.js,*.java,*.go,*.rs,*.php,*.ng,*.jsx,*.ts,*.d,*.cs,*.swift]
+[{*.c,*.cc,*.h,*.hh,*.cpp,*.hpp,*.m,*.mm,*.mpp,*.js,*.java,*.go,*.rs,*.php,*.ng,*.jsx,*.ts,*.d,*.cs,*.swift}]
 curly_bracket_next_line = false
 spaces_around_operators = true
 spaces_around_brackets = outside
